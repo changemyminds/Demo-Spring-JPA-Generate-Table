@@ -1,0 +1,4 @@
+spring:
+  profiles:
+    # h2 or mysql
+    active: h2
