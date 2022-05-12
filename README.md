@@ -2,6 +2,8 @@
 
 If you want to use class field to determine the column order of the table, you need fix the `PropertyContainer.java` and `InheritanceState.java`.
 
+> If the column order of the table doesn't change, you can use `Invalidate Caches / Restart...` on IDEA.
+
 ### Demo1
 ```java
 @Entity
@@ -98,7 +100,7 @@ Before fix.
 Hibernate: create table organization_audit (id bigint not null, create_time datetime, created_by varchar(255), last_modified_by varchar(255), update_time datetime, name varchar(255) not null, organization_number varchar(255) not null, primary key (id)) engine=InnoDB
 
 After fix.
-Hibernate: create table organization (id bigint not null, organization_number varchar(255) not null, name varchar(255) not null, primary key (id)) engine=InnoDB
+Hibernate: create table organization_audit (id bigint not null, organization_number varchar(255) not null, name varchar(255) not null, created_by varchar(255), last_modified_by varchar(255), update_time datetime, create_time datetime, primary key (id)) engine=InnoDB
 ```
 
 The Database result
